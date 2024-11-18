@@ -1,0 +1,14 @@
+# Write the codes below!
+FROM python:3.11-slim
+
+WORKDIR /home/app
+
+ADD hyper-app /
+
+RUN pip freeze > requirements.txt
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+ENTRYPOINT ["python3", "main.py"]
